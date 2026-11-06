@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TextEditor_VK</string>
+    <string name="hello_text">Hello , Text Edtor V_K</string>
+    <string name="change_text">Change Text</string>
+    <string name="changed_text">You are clicked a change text..</string>
+    <string name="reset_text">Reset Text</string>
+</resources>

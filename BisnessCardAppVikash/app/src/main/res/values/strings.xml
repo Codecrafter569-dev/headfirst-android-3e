@@ -1,0 +1,16 @@
+<resources>
+  <string name="app_name">
+    BisnessCardAppVikash
+  </string>
+  <string name="text">
+    Vikash is a self-directed learner
+    building strong foundations in
+    computer science. He studies data
+    structures from Lafore\'s book,
+    networking from Kurose &amp; Ross,
+    PostgreSQL, C++ game development
+    with SDL2, and Android apps with
+    Jetpack Compose, all on his phone
+    using Termux.
+  </string>
+</resources>

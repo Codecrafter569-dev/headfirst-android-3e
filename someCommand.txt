@@ -1,0 +1,27 @@
+Great, glad both work. For everyday coding, use this one command.
+
+## Your everyday command
+
+Go to your project folder first, then build:
+
+```bash
+cd "/storage/emulated/0/AndroidIDEProjects/Head_first_Android_development_3_edition/SpinnerTest/"
+bash ./gradlew assembleDebug
+```
+
+This builds only what changed, so it's fast (around 10 seconds, as you saw). Your APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
+
+## Use the others only when needed
+
+| Situation | Command |
+|---|---|
+| Normal coding, testing your app | `bash ./gradlew assembleDebug` |
+| Something looks stuck, odd, or outdated | `bash ./gradlew clean assembleDebug` |
+| Gradle hangs or a daemon error appears | `bash ./gradlew --stop`, then build again |
+| Before sharing or finishing a project | `bash ./gradlew clean check assembleDebug` |
+
+## Tips
+
+- **Don't use `clean` every time.** It deletes the old build, so the next one is slower.
+- **Use `bash ./gradlew`**, not `./gradlew`, to avoid the "Permission denied" message.
+- **You can also use the Build button** in AndroidIDE. It does the same thing as `assembleDebug`.

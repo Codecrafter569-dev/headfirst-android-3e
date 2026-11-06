@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Counter App</string>
+    <string name="count_label">You clicked %1$d times</string>
+    <string name="button_add">Add</string>
+    <string name="button_subtract">Subtract</string>
+    <string name="button_reset">Reset</string>
+</resources>
