@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -151,6 +152,29 @@ fun CounterScreen(modifier: Modifier = Modifier){
 								}
 							}
 						}
+						
+						Row(
+    horizontalArrangement = Arrangement.spacedBy(8.dp),
+    verticalAlignment = Alignment.CenterVertically
+) {
+    Text("Step:")
+
+    var stepText by remember { mutableStateOf(step.toString()) }
+
+    OutlinedTextField(
+        value = stepText,
+        onValueChange = { input ->
+            if (input.matches(Regex("^-?\\d*$"))) {
+                stepText = input
+                input.toIntOrNull()?.let { onStepChange(it) }  // "" or "-" ignored
+            }
+        },
+        label = { Text("Step") },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        singleLine = true,
+        modifier = Modifier.width(120.dp)
+    )
+}
 						Spacer(modifier = Modifier.height(16.dp))
 						
 						
