@@ -33,5 +33,35 @@ fromBase = {it / factor}
 						linear("Inch",0.0254)
 				)
 			),
-				
+				UnitCategory(
+						"Weight",
+						listOf(
+								linear("Kilogram",1.0),
+								linear("Gram",0.001),
+								linear("Milligram",0.000001),
+								linear("Pound",0.45359237),
+								linear("Ounce",0.028349523125)
+						)
+				),
+				UnitCategory(
+						"Temperature",
+						listOf(
+								UnitItem("Celsius",{it},{it}),
+								UnitItem("Fehrenheit",{(it - 32) * 5 / 9},{it * 9 / 5 + 32}),
+								UnitItem("Kelvin",{it - 273.15},{it + 273.15})
+						)
+				)
 	)
+	
+	fun convert(value: Double, from: UnitItem , to: UnitItem): Double =
+	to.fromBase(from.toBase(value))
+	
+	
+	fun formatResult(v: Double): String{
+		if(v == 0.0) return "0"
+		return if(abs(v) >= 1e9 || abs(v) < 1e-4){
+			 String.format(Locale.US , "%.6e", v)
+		}else{
+			String.format(Locale.US , "%.6f",v).trimEnd('0').trimEnd('.')
+		}
+	}
