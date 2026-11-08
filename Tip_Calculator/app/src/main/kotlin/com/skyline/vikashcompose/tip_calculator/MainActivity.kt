@@ -62,7 +62,7 @@ var persentInTip by remember { mutableStateOf("")}
 The amountInput initialization can also be written like this with type inference:
 var amountInput = mutableStateOf("0")
 */
-val tipAmount = persentInTip.toDoubleOrNull() ?: 15.0
+val tipAmount = persentInTip.toDoubleOrNull() ?: 10.0
 val amount = amountForTip.toDoubleOrNull() ?: 0.0
 val tip = calculateTip(amount , tipAmount)
 	Column(
