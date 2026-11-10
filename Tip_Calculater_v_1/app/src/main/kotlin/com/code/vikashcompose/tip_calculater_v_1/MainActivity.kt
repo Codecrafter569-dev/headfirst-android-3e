@@ -39,10 +39,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
+import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.ui.Alignment
 import androidx.annotation.StringRes
+import androidx.annotation.DrawableRes
+import androidx.compose.material3.Icon
 import com.code.vikashcompose.tip_calculater_v_1.ui.theme.ComposeEmptyActivityTheme
 
 class MainActivity : ComponentActivity() {
@@ -101,6 +104,7 @@ val tip = calculateTip(amount , tipAmount,roundUp)
 		
 		NumberTextField(
 		label = R.string.bill_amount,
+		leadingIcon = R.drawable.money,
 		keyboardOptions = KeyboardOptions.Default.copy(
         keyboardType = KeyboardType.Number,
         imeAction = ImeAction.Next
@@ -113,6 +117,7 @@ val tip = calculateTip(amount , tipAmount,roundUp)
 		    )
 		    NumberTextField(
 		    label = R.string.how_was_the_service,
+		    leadingIcon = R.drawable.percent,
 		    keyboardOptions = KeyboardOptions.Default.copy(
         keyboardType = KeyboardType.Number,
         imeAction = ImeAction.Done
@@ -161,14 +166,16 @@ modifier: Modifier = Modifier){
 @Composable
 fun NumberTextField(
 @StringRes label: Int,
+@DrawableRes leadingIcon: Int,
 keyboardOptions: KeyboardOptions,
 value: String,
 onValueChange:(String) -> Unit,
-modifier: Modifier = Modifier){
+modifier: Modifier = Modifier
+){
 
 	TextField(
 	value = value,
-	label = {Text(stringResource(label)) },
+leadingIcon = { Icon(painter = painterResource(id = leadingIcon), contentDescription = null) },
 	singleLine = true,
 	keyboardOptions = keyboardOptions,
 	onValueChange = onValueChange,
